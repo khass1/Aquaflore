@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AquaFlore Dermocosméticos</title>
+  <meta name="description" content="Landing page da AquaFlore: dermocosméticos brasileiros para hidratar, proteger e equilibrar a pele." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#15211b;
+      --muted:#5b6c63;
+      --muted-2:#7f9188;
+      --paper:#f6f8f3;
+      --paper-2:#eef4ef;
+      --white:#ffffff;
+      --deep:#083e31;
+      --deep-2:#102a20;
+      --green:#00765d;
+      --green-2:#02977b;
+      --aqua:#23bfd0;
+      --line:rgba(8,62,49,.13);
+      --shadow:0 30px 80px rgba(8,62,49,.12);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth; scroll-padding-top:92px}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:'Hanken Grotesk',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .wrap{width:min(1180px, calc(100% - 40px)); margin:0 auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      font-family:'Spline Sans Mono',ui-monospace,monospace;
+      font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--green);font-weight:500;
+    }
+    .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;display:inline-block}
+    .serif{font-family:'Cormorant Garamond',Georgia,serif}
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:48px;border-radius:999px;padding:14px 24px;
+      text-decoration:none;font-weight:750;font-size:15px;letter-spacing:.01em;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--green);color:white;box-shadow:0 16px 34px rgba(0,118,93,.22)}
+    .button.primary:hover{background:var(--deep)}
+    .button.secondary{background:transparent;border:1px solid var(--line);color:var(--deep)}
+    .button.secondary:hover{border-color:var(--green);color:var(--green)}
+
+    .topbar{background:var(--deep);color:#cbe3d8;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+    .topbar .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:34px;flex-wrap:wrap}
+    .topbar-dot{width:6px;height:6px;border-radius:50%;background:#7fc6a5;display:inline-block;margin-right:8px}
+
+    header{position:sticky;top:0;z-index:30;background:rgba(246,248,243,.78);backdrop-filter:saturate(140%) blur(16px);border-bottom:1px solid rgba(8,62,49,0);transition:border-color .2s ease, background .2s ease}
+    body.scrolled header{background:rgba(246,248,243,.92);border-bottom-color:var(--line)}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;min-height:76px}
+    .brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--deep);white-space:nowrap}
+    .brand-mark{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:33px;font-weight:600;line-height:1;letter-spacing:-.01em}
+    .brand-dot{width:7px;height:7px;border-radius:999px;background:var(--green);align-self:center}
+    .brand-sub{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.34em;text-transform:uppercase;color:#71857d}
+    nav{display:flex;gap:27px;align-items:center}
+    nav a{text-decoration:none;color:#34453c;font-size:14px;font-weight:650;transition:color .18s ease}
+    nav a:hover{color:var(--green)}
+    .mobile-toggle{display:none;border:1px solid var(--line);border-radius:999px;background:white;padding:10px 12px;color:var(--deep);font-weight:800}
+
+    .hero{position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-20% -20% auto auto;width:62vw;height:62vw;background:radial-gradient(circle at 40% 40%, rgba(35,191,208,.18), rgba(0,118,93,.07) 42%, transparent 64%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:58px;align-items:center;padding:72px 0 42px;position:relative}
+    h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(52px, 7vw, 86px);line-height:.95;letter-spacing:-.025em;margin:22px 0 24px;color:var(--deep-2)}
+    h1 em{font-style:italic;color:var(--green)}
+    .hero-copy{font-size:18px;line-height:1.65;color:#46574e;max-width:540px;margin:0 0 34px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-card{position:relative;isolation:isolate}
+    .arch{position:relative;aspect-ratio:4/5;border-radius:220px 220px 30px 30px;border:1px solid var(--line);background:repeating-linear-gradient(135deg,#e5eee7,#e5eee7 17px,#f2f7f3 17px,#f2f7f3 34px);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--shadow)}
+    .arch::after{content:"";position:absolute;inset:34px;border-radius:180px 180px 22px 22px;border:1px solid rgba(255,255,255,.7)}
+    .hero-pack{width:min(76%, 430px);filter:drop-shadow(0 28px 38px rgba(8,62,49,.16));transform:rotate(-2deg);position:relative;z-index:1;border-radius:14px;background:#fff;padding:18px}
+    .hero-pack img{border-radius:8px}
+    .floating-note{position:absolute;right:-4px;bottom:34px;background:#fff;border:1px solid var(--line);box-shadow:0 20px 42px rgba(8,62,49,.16);border-radius:20px;padding:18px 20px;max-width:230px;z-index:2}
+    .floating-note strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-style:italic;color:var(--green);display:block;line-height:1;margin-bottom:7px}
+    .floating-note span{font-size:13px;line-height:1.45;color:var(--muted)}
+
+    .trust{padding:18px 0 66px}
+    .trust-grid{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:22px 0}
+    .trust-item{display:flex;gap:11px;align-items:center;color:#34453c;font-weight:650;font-size:14px}
+    .trust-item::before{content:"";width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--green),var(--aqua));flex:0 0 auto}
+
+    section.block{padding:88px 0}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:48px}
+    .section-head h2,.split h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(42px,5vw,58px);font-weight:500;line-height:1;letter-spacing:-.015em;margin:16px 0 0;color:var(--deep-2)}
+    .section-head p{max-width:410px;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+
+    .products{background:#fff;border-block:1px solid var(--line)}
+    .featured{display:grid;grid-template-columns:.88fr 1.12fr;gap:46px;align-items:center;margin-bottom:30px}
+    .product-stage{min-height:520px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg,#f7faf5,#edf5ee);display:flex;align-items:center;justify-content:center;padding:34px;position:relative;overflow:hidden}
+    .product-stage::before{content:"";position:absolute;width:420px;height:420px;border-radius:999px;background:rgba(0,118,93,.06);top:-110px;right:-90px}
+    .product-stage::after{content:"";position:absolute;inset:18px;border:1px dashed rgba(8,62,49,.18);border-radius:22px;pointer-events:none}
+    .product-stage img{max-height:440px;object-fit:contain;border-radius:16px;box-shadow:0 18px 46px rgba(8,62,49,.10);background:#fff;position:relative;z-index:1}
+    .featured-info .kicker{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+    .featured-info h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:600;letter-spacing:-.015em;line-height:.98;margin:14px 0 10px;color:var(--deep-2)}
+    .featured-info .type{font-size:19px;font-weight:750;color:var(--green);margin-bottom:20px}
+    .featured-info p{font-size:17px;line-height:1.65;color:#46574e;max-width:610px;margin:0 0 22px}
+    .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+    .pill{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--deep);border:1px solid rgba(0,118,93,.18);background:#f3f8f4;border-radius:999px;padding:9px 12px}
+    .use-box{display:grid;grid-template-columns:105px 1fr;gap:16px;border-top:1px solid var(--line);padding-top:20px;max-width:620px}
+    .use-box b{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+    .use-box span{color:#34453c;line-height:1.55}
+    .product-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .product-tab{text-align:left;font-family:inherit;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:22px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+    .product-tab:hover{transform:translateY(-3px);border-color:rgba(0,118,93,.5)}
+    .product-tab.active{background:#f3f8f4;border-color:var(--green)}
+    .tab-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;color:var(--muted-2);font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.12em}
+    .selected{display:none;color:var(--green);font-weight:700}
+    .product-tab.active .selected{display:inline-flex;align-items:center;gap:6px}
+    .selected::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--green);display:inline-block}
+    .product-tab h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:29px;line-height:1;margin:0 0 6px;color:var(--deep-2)}
+    .product-tab p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+
+    .formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .formula-card{background:var(--paper);min-height:175px;padding:28px;display:flex;flex-direction:column;transition:background .18s ease}
+    .formula-card:hover{background:#fff}
+    .formula-card .num{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;color:#9aa8a1;margin-bottom:auto}
+    .formula-card h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:29px;font-weight:600;line-height:1;margin:24px 0 8px;color:var(--green)}
+    .formula-card p{font-size:14.5px;line-height:1.52;margin:0;color:#46574e}
+
+    .ritual{background:#f0ecdf;border-block:1px solid rgba(8,62,49,.08)}
+    .split{display:grid;grid-template-columns:.8fr 1.2fr;gap:58px;align-items:center}
+    .split p{font-size:16.5px;line-height:1.65;color:#5b665d;margin:18px 0 0;max-width:450px}
+    .steps{display:flex;flex-direction:column}
+    .step{display:grid;grid-template-columns:66px 1fr;gap:24px;padding:27px 0;border-top:1px solid rgba(8,62,49,.16)}
+    .step:last-child{border-bottom:1px solid rgba(8,62,49,.16)}
+    .step-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:42px;font-style:italic;color:var(--green);line-height:1}
+    .step h3{margin:0 0 7px;font-size:21px;color:var(--deep-2)}
+    .step p{font-size:15px;line-height:1.55;margin:0;color:#5b665d;max-width:none}
+
+    .professional{background:var(--deep);color:#e8f3ee}
+    .professional .split p{color:#bdd7ca}
+    .professional h2{color:white}
+    .professional .eyebrow{color:#7fc6a5}
+    .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);border-radius:22px;overflow:hidden}
+    .stat{background:var(--deep);padding:28px 24px}
+    .stat strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;font-weight:500;display:block;color:#fff;line-height:1;margin-bottom:8px}
+    .stat span{font-size:13px;color:#a4c1b2;line-height:1.4}
+
+    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+    .brand-panel{border:1px solid var(--line);border-radius:28px 28px 180px 180px;min-height:540px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#e5eee7,#e5eee7 17px,#f2f7f3 17px,#f2f7f3 34px);overflow:hidden;box-shadow:var(--shadow)}
+    .brand-panel .seal{width:74%;background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 28px;text-align:center}
+    .seal .brand-mark{font-size:58px;color:var(--deep)}
+    .seal p{margin:14px auto 0;color:var(--muted);line-height:1.5;max-width:360px}
+    .about-text h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:54px;font-weight:500;line-height:1.02;letter-spacing:-.015em;margin:18px 0 22px;color:var(--deep-2)}
+    .about-text p{font-size:16.5px;line-height:1.68;color:#46574e;margin:0 0 16px}
+    .mini-stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:30px}
+    .mini-stats strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:500;color:var(--green);display:block;line-height:1}
+    .mini-stats span{display:block;color:var(--muted-2);font-size:13px;margin-top:5px}
+
+    footer{background:var(--deep-2);color:#c9ddd2}
+    footer .wrap{padding:76px 0 0}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:58px;border-bottom:1px solid rgba(255,255,255,.12)}
+    .footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:39px;font-weight:600;color:white;line-height:1;margin-bottom:18px}
+    footer p{max-width:340px;margin:0 0 24px;color:#9fbcad;line-height:1.6}
+    footer h3{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fc6a5;margin:0 0 18px}
+    footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+    footer a{text-decoration:none;color:#c9ddd2;transition:color .18s ease}
+    footer a:hover{color:#fff}
+    .contact-lines{display:flex;flex-direction:column;gap:14px}
+    .contact-lines small{display:block;color:#7e988b;font-size:12px;margin-bottom:4px}
+    .contact-lines strong{display:block;color:#fff;font-size:17px}
+    .fineprint{padding:24px 0 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#7e988b;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.08em}
+
+    @media (max-width: 980px){
+      nav{display:none}
+      .mobile-toggle{display:inline-flex}
+      header.open nav{display:flex;position:absolute;left:20px;right:20px;top:86px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 45px rgba(8,62,49,.14);padding:18px;flex-direction:column;align-items:flex-start;gap:14px}
+      .hero-grid,.featured,.split,.about-grid{grid-template-columns:1fr;gap:38px}
+      .hero-grid{padding-top:52px}
+      .trust-grid,.formula-grid,.footer-grid{grid-template-columns:repeat(2,1fr)}
+      .section-head{align-items:flex-start;flex-direction:column}
+      .product-stage{min-height:420px}
+      .product-tabs{grid-template-columns:1fr}
+      .brand-panel{min-height:420px;border-radius:28px}
+    }
+    @media (max-width: 640px){
+      .wrap{width:min(100% - 28px, 1180px)}
+      .topbar{font-size:9.5px}
+      header .wrap{min-height:68px}
+      .brand-mark{font-size:29px}.brand-sub{display:none}
+      .hero-grid{padding:44px 0 30px}
+      h1{font-size:54px}
+      .hero-copy{font-size:16.5px}
+      .arch{border-radius:120px 120px 24px 24px}.hero-pack{width:84%;padding:12px}.floating-note{position:relative;right:auto;bottom:auto;margin:-38px 14px 0 auto}
+      .trust-grid,.formula-grid,.stat-grid,.footer-grid{grid-template-columns:1fr}
+      section.block{padding:66px 0}
+      .section-head h2,.split h2,.about-text h2{font-size:42px}
+      .featured-info h3{font-size:44px}
+      .product-stage{min-height:330px;padding:22px}.product-stage img{max-height:300px}
+      .use-box{grid-template-columns:1fr;gap:8px}
+      .step{grid-template-columns:48px 1fr;gap:16px}
+      .fineprint{font-size:9.5px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span>Indústria brasileira · Dermocosméticos</span>
+      <span><span class="topbar-dot"></span>SAC 11 4390.0305</span>
+    </div>
+  </div>
+
+  <header id="siteHeader">
+    <div class="wrap">
+      <a class="brand" href="#hero" aria-label="AquaFlore home">
+        <span class="brand-mark">AquaFlore</span><span class="brand-dot"></span><span class="brand-sub">Dermocosméticos</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#formula">Fórmula</a>
+        <a href="#ritual">Ritual</a>
+        <a href="#profissionais">Profissionais</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="button primary" href="#contato">Onde comprar</a>
+      <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="siteHeader">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">cuidado dermatológico</div>
+          <h1>A ciência da pele,<br><em>em sua forma mais pura.</em></h1>
+          <p class="hero-copy">Uma presença digital elegante para uma linha de dermocosméticos brasileira: hidratação, proteção e conforto para a rotina diária e para protocolos profissionais.</p>
+          <div class="hero-actions">
+            <a href="#produtos" class="button primary">Conheça os produtos</a>
+            <a href="#formula" class="button secondary">Ver ativos</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="arch">
+            <div class="hero-pack"><img src="assets/aquafluid-label.jpg" alt="Rótulo AquaFluid da AquaFlore"></div>
+          </div>
+          <div class="floating-note"><strong>AquaFluid</strong><span>Bruma hidratante com proposta remineralizante, refrescante e calmante.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap trust">
+      <div class="trust-grid">
+        <div class="trust-item">Para todos os tipos de pele</div>
+        <div class="trust-item">Indústria brasileira</div>
+        <div class="trust-item">Uso diário e profissional</div>
+        <div class="trust-item">Linguagem limpa e técnica</div>
+      </div>
+    </div>
+
+    <section class="block products" id="produtos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">a linha</div>
+            <h2>Cada gesto, um cuidado</h2>
+          </div>
+          <p>Estrutura pronta para e-commerce, institucional ou catálogo digital. O seletor abaixo troca o produto em destaque.</p>
+        </div>
+
+        <div class="featured" aria-live="polite">
+          <div class="product-stage"><img id="featuredImage" src="assets/aquafluid-label.jpg" alt="Rótulo do produto AquaFluid"></div>
+          <div class="featured-info">
+            <div class="kicker" id="featuredKicker">Fluido hidratante</div>
+            <h3 id="featuredName">AquaFluid</h3>
+            <div class="type" id="featuredType">Remineralizante · Refrescante · Calmante</div>
+            <p id="featuredDesc">Fluido hidratante indicado para todos os tipos de pele. Pode ser utilizado após procedimentos estéticos e ajuda a hidratar, acalmar e refrescar a pele.</p>
+            <div class="pill-row" id="featuredPills"></div>
+            <div class="use-box">
+              <b>Modo de usar</b>
+              <span id="featuredUse">Vaporizar abundantemente a 10 cm da pele, diversas vezes ao dia.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-tabs" role="tablist" aria-label="Produtos AquaFlore">
+          <button class="product-tab active" type="button" data-product="aquafluid" role="tab" aria-selected="true">
+            <div class="tab-top"><span>01</span><span class="selected">Selecionado</span></div>
+            <h4>AquaFluid</h4><p>Fluido hidratante para todos os tipos de pele.</p>
+          </button>
+          <button class="product-tab" type="button" data-product="faceblur" role="tab" aria-selected="false">
+            <div class="tab-top"><span>02</span><span class="selected">Selecionado</span></div>
+            <h4>Face Blur FPS 50</h4><p>Gel creme hidratante UVA + UVB.</p>
+          </button>
+          <button class="product-tab" type="button" data-product="lipobody" role="tab" aria-selected="false">
+            <div class="tab-top"><span>03</span><span class="selected">Selecionado</span></div>
+            <h4>LipoBody</h4><p>Creme de massagem corporal.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="formula">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">dentro da fórmula</div>
+            <h2>Ativos que a pele reconhece</h2>
+          </div>
+          <p>Os ativos abaixo vêm dos rótulos e da linguagem da marca. Ajuste as descrições finais conforme a área regulatória aprovar.</p>
+        </div>
+        <div class="formula-grid">
+          <article class="formula-card"><span class="num">01</span><h3>Ácido Hialurônico</h3><p>Ativo umectante associado à hidratação e conforto da pele.</p></article>
+          <article class="formula-card"><span class="num">02</span><h3>Camomila</h3><p>Presente no AquaFluid, reforça o território de suavidade e cuidado.</p></article>
+          <article class="formula-card"><span class="num">03</span><h3>Niacinamida</h3><p>Ativo cosmético conhecido por apoiar uniformização e barreira cutânea.</p></article>
+          <article class="formula-card"><span class="num">04</span><h3>Cafeína</h3><p>Componente do Face Blur, ligado à proposta de vitalidade e aparência descansada.</p></article>
+          <article class="formula-card"><span class="num">05</span><h3>Colágeno</h3><p>Presente no LipoBody, compõe a narrativa de massagem e cuidado corporal.</p></article>
+          <article class="formula-card"><span class="num">06</span><h3>Extratos vegetais</h3><p>Gengibre, chá verde, pimenta negra e centella asiática no universo corporal.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block ritual" id="ritual">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">o ritual</div>
+          <h2>Três passos,<br>todos os dias</h2>
+          <p>Uma narrativa simples para orientar o cliente sem transformar a página em bula: limpar, hidratar e proteger.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">01</div><div><h3>Prepare</h3><p>Comece com a pele limpa e seca para receber os produtos de cuidado.</p></div></article>
+          <article class="step"><div class="step-num">02</div><div><h3>Hidrate</h3><p>Borrife AquaFluid ao longo do dia para refrescar e trazer sensação de conforto.</p></div></article>
+          <article class="step"><div class="step-num">03</div><div><h3>Proteja</h3><p>Use Face Blur FPS 50 como multifuncional com filtro solar, respeitando as orientações do rótulo.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block professional" id="profissionais">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">para profissionais</div>
+          <h2>Parceiros da sua clínica</h2>
+          <p>Uma área dedicada a esteticistas, spas, revendedores e clínicas ajuda a separar o discurso profissional do discurso para consumidor final.</p>
+          <p><a href="#contato" class="button primary" style="background:#fff;color:var(--deep);box-shadow:none;margin-top:10px">Falar com atendimento</a></p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><strong>03</strong><span>Produtos iniciais da linha</span></div>
+          <div class="stat"><strong>FPS 50</strong><span>Multifuncional com filtro solar</span></div>
+          <div class="stat"><strong>Pós</strong><span>Discurso de apoio pós-procedimento</span></div>
+          <div class="stat"><strong>SAC</strong><span>Canal claro para compras e suporte</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="sobre">
+      <div class="wrap about-grid">
+        <div class="brand-panel">
+          <div class="seal">
+            <div class="brand-mark">AquaFlore</div>
+            <p>Dermocosméticos com estética limpa, científica e natural — uma identidade visual que combina verde profundo, aqua e bastante espaço em branco.</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">sobre a marca</div>
+          <h2>Dermocosmética brasileira, feita com rigor</h2>
+          <p>A página foi desenhada para manter coerência com os rótulos enviados: tipografia elegante, contraste entre verde e azul, uso generoso de branco e comunicação técnica sem exageros.</p>
+          <p>O conteúdo final pode receber fotos de produto, certificados, pontos de venda e perguntas frequentes. A estrutura já está preparada para crescer.</p>
+          <div class="mini-stats">
+            <div><strong>100%</strong><span>visual responsivo</span></div>
+            <div><strong>HTML</strong><span>sem dependências pesadas</span></div>
+            <div><strong>SEO</strong><span>base inicial pronta</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">AquaFlore</div>
+          <p>Dermocosméticos para hidratar, proteger e equilibrar a pele — todos os dias.</p>
+          <a href="#produtos" class="button secondary" style="color:#fff;border-color:rgba(255,255,255,.32)">Ver produtos</a>
+        </div>
+        <div>
+          <h3>Navegação</h3>
+          <ul>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#formula">Fórmula</a></li>
+            <li><a href="#ritual">Ritual</a></li>
+            <li><a href="#profissionais">Profissionais</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Atendimento</h3>
+          <div class="contact-lines">
+            <div><small>SAC</small><strong>11 4390.0305</strong></div>
+            <div><small>WhatsApp / atendimento</small><strong>11 97659.1889</strong></div>
+            <div><small>E-mail</small><strong>sac@aquaflore.com.br</strong></div>
+            <div><small>Site</small><strong>www.aquaflore.com.br</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="fineprint">
+        <span>© 2026 AquaFlore Dermocosméticos</span>
+        <span>Uso externo · mantenha fora do alcance de crianças</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    const toggle = document.querySelector('.mobile-toggle');
+    toggle.addEventListener('click', () => {
+      const open = header.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    header.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => header.classList.remove('open')));
+    window.addEventListener('scroll', () => document.body.classList.toggle('scrolled', window.scrollY > 10), {passive:true});
+
+    const products = {
+      aquafluid: {
+        kicker:'Fluido hidratante', name:'AquaFluid', type:'Remineralizante · Refrescante · Calmante',
+        desc:'Fluido hidratante indicado para todos os tipos de pele. Pode ser utilizado após procedimentos estéticos e ajuda a hidratar, acalmar e refrescar a pele.',
+        use:'Vaporizar abundantemente a 10 cm da pele, diversas vezes ao dia.',
+        image:'assets/aquafluid-label.jpg', alt:'Rótulo do produto AquaFluid',
+        pills:['Todos os tipos de pele','Pós-procedimento','Ácido hialurônico','Camomila']
+      },
+      faceblur: {
+        kicker:'Gel creme hidratante UVA + UVB', name:'Face Blur AquaFlore FPS 50', type:'Fotoproteção · Antioxidante · Anti envelhecimento',
+        desc:'Multifuncional com filtro solar e proposta de correção visual, hidratação e proteção. O rótulo destaca vitaminas E + D e elastina.',
+        use:'Aplique sobre a pele limpa e espalhe uniformemente. Este produto é multifuncional e contém filtro solar; siga as orientações do rótulo.',
+        image:'assets/faceblur-front.jpg', alt:'Rótulo frontal do Face Blur AquaFlore FPS 50',
+        pills:['FPS 50','UVA + UVB','Vitaminas E + D','Elastina']
+      },
+      lipobody: {
+        kicker:'Creme de massagem corporal', name:'LipoBody', type:'Colágeno · L-carnitina · Extratos vegetais',
+        desc:'Creme de massagem corporal desenvolvido para facilitar o deslizamento e apoiar protocolos de cuidado corporal profissional.',
+        use:'Aplicar quantidade suficiente sobre a pele limpa e seca, massageando até total absorção.',
+        image:'assets/lipobody-label.jpg', alt:'Rótulo do produto LipoBody',
+        pills:['Colágeno','L-carnitina','Gengibre','Centella asiática']
+      }
+    };
+
+    const els = {
+      image: document.getElementById('featuredImage'),
+      kicker: document.getElementById('featuredKicker'),
+      name: document.getElementById('featuredName'),
+      type: document.getElementById('featuredType'),
+      desc: document.getElementById('featuredDesc'),
+      use: document.getElementById('featuredUse'),
+      pills: document.getElementById('featuredPills')
+    };
+    function selectProduct(id){
+      const p = products[id];
+      if(!p) return;
+      els.image.src = p.image;
+      els.image.alt = p.alt;
+      els.kicker.textContent = p.kicker;
+      els.name.textContent = p.name;
+      els.type.textContent = p.type;
+      els.desc.textContent = p.desc;
+      els.use.textContent = p.use;
+      els.pills.innerHTML = p.pills.map(x => `<span class="pill">${x}</span>`).join('');
+      document.querySelectorAll('.product-tab').forEach(tab => {
+        const active = tab.dataset.product === id;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+    document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => selectProduct(tab.dataset.product)));
+    selectProduct('aquafluid');
+  </script>
+</body>
+</html>
