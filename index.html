@@ -209,8 +209,7 @@
     }
     .product-tab:hover{border-color:var(--green);transform:translateY(-3px)}
     .product-tab.active{background:#F3F8F4;border-color:var(--green)}
-    .tab-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .tab-top .num{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;color:#6E8579}
+    .tab-top{display:flex;align-items:center;justify-content:flex-end;min-height:18px;margin-bottom:18px}
     .tab-top .sel{display:none;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);align-items:center;gap:6px}
     .tab-top .sel::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
     .product-tab.active .tab-top .sel{display:flex}
@@ -230,15 +229,6 @@
     .ing-card .note{font-size:14px;line-height:1.5;color:#46554D}
 
     /* ===== RITUAL ===== */
-    #ritual{background:#F0ECE1}
-    #ritual .wrap{padding-top:84px;padding-bottom:84px;display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
-    #ritual h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:50px;line-height:1.02;letter-spacing:-.01em;margin:0 0 18px;color:var(--deep-2)}
-    #ritual .intro{font-size:16px;line-height:1.6;color:#5A6358;margin:0}
-    .steps{display:flex;flex-direction:column}
-    .step{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;padding:26px 0;border-top:1px solid rgba(7,61,48,.16)}
-    .step .step-num{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:40px;color:var(--green);line-height:1}
-    .step .step-t{font-size:20px;font-weight:600;color:var(--deep-2);margin-bottom:6px}
-    .step .step-d{font-size:15px;line-height:1.55;color:#5A6358}
 
     /* ===== PROFESSIONALS ===== */
     #profissionais{background:var(--deep);color:#E7F0EA}
@@ -296,7 +286,7 @@
     }
     @media (max-width:760px){
       h1{font-size:40px;line-height:1.03}
-      .section-head h2,.ing-head h2,#ritual h2,#sobre h2{font-size:30px;line-height:1.06}
+      .section-head h2,.ing-head h2,#sobre h2{font-size:30px;line-height:1.06}
       #profissionais h2{font-size:34px}
       #hero{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:16px}
       .trust{padding-top:14px;padding-bottom:48px}
@@ -306,7 +296,6 @@
       .switcher{grid-template-columns:1fr}
       #ingredientes .wrap{padding-top:52px;padding-bottom:52px}
       .ing-grid{grid-template-columns:1fr}
-      #ritual .wrap{grid-template-columns:1fr;gap:28px;padding-top:52px;padding-bottom:52px}
       #profissionais .wrap{grid-template-columns:1fr;gap:34px;padding-top:56px;padding-bottom:56px}
       #sobre{grid-template-columns:1fr;gap:30px;padding-top:56px;padding-bottom:56px}
       .about-figure{order:2}
@@ -348,7 +337,6 @@
       <nav aria-label="Navegação principal">
         <a href="#produtos">Produtos</a>
         <a href="#ingredientes">Ingredientes</a>
-        <a href="#ritual">Ritual</a>
         <a href="#profissionais">Profissionais</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
@@ -372,7 +360,6 @@
     <nav aria-label="Navegação mobile">
       <a href="#produtos">Produtos</a>
       <a href="#ingredientes">Ingredientes</a>
-      <a href="#ritual">Ritual</a>
       <a href="#profissionais">Profissionais</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
@@ -449,17 +436,17 @@
 
         <div class="switcher" role="tablist" aria-label="Produtos AquaFlore">
           <button class="product-tab active" type="button" data-product="aquafluid" role="tab" aria-selected="true">
-            <div class="tab-top"><span class="num">200 ml</span><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel">Selecionado</span></div>
             <div class="tab-name">AquaFluid</div>
             <div class="tab-type">Fluido Hidratante</div>
           </button>
           <button class="product-tab" type="button" data-product="faceblur" role="tab" aria-selected="false">
-            <div class="tab-top"><span class="num">50 g</span><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel">Selecionado</span></div>
             <div class="tab-name">Face Blur FPS 50</div>
             <div class="tab-type">Multifuncional com filtro solar</div>
           </button>
           <button class="product-tab" type="button" data-product="lipobody" role="tab" aria-selected="false">
-            <div class="tab-top"><span class="num">1 kg</span><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel">Selecionado</span></div>
             <div class="tab-name">Lipobody</div>
             <div class="tab-type">Creme de massagem corporal</div>
           </button>
@@ -486,21 +473,6 @@
       </div>
     </section>
 
-    <!-- ===== RITUAL ===== -->
-    <section id="ritual">
-      <div class="wrap">
-        <div>
-          <div class="eyebrow">O ritual</div>
-          <h2>Três passos,<br>todos os dias</h2>
-          <p class="intro">Uma rotina simples para manter a pele equilibrada, protegida e confortável — de manhã à noite.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><div class="step-num">01</div><div><div class="step-t">Limpe</div><div class="step-d">Comece sempre com a pele limpa e seca.</div></div></div>
-          <div class="step"><div class="step-num">02</div><div><div class="step-t">Hidrate</div><div class="step-d">Reponha a hidratação sempre que a pele pedir, ao longo do dia.</div></div></div>
-          <div class="step"><div class="step-num">03</div><div><div class="step-t">Proteja</div><div class="step-d">Use proteção solar diariamente, inclusive em ambientes fechados.</div></div></div>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== PROFESSIONALS ===== -->
     <section id="profissionais">
@@ -512,7 +484,7 @@
           <a class="btn pro-cta" href="#contato">Seja um revendedor</a>
         </div>
         <div class="stat-grid">
-          <div class="stat"><div class="k">03</div><div class="v">Produtos para profissionais</div></div>
+          <div class="stat"><div class="k">03</div><div class="v">Produtos de uso profissional</div></div>
           <div class="stat"><div class="k">FPS 50</div><div class="v">Proteção no multifuncional</div></div>
           <div class="stat"><div class="k">Pós</div><div class="v">Cuidado pós-procedimento</div></div>
           <div class="stat"><div class="k">SAC</div><div class="v">Suporte para revendedores</div></div>
@@ -568,8 +540,7 @@
           <div class="foot-nav">
             <a href="#produtos">Produtos</a>
             <a href="#ingredientes">Ingredientes</a>
-            <a href="#ritual">Ritual</a>
-            <a href="#profissionais">Profissionais</a>
+                <a href="#profissionais">Profissionais</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
           </div>
