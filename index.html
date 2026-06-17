@@ -198,6 +198,8 @@
     .triad{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
     .triad span{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--deep);background:#E8F0EA;border-radius:100px;padding:7px 15px}
     .featured-info .desc{font-size:16px;line-height:1.65;color:#46554D;margin:0 0 26px;max-width:520px}
+    .product-detail{display:none}
+    .product-detail.active{display:block}
     .specs{margin:22px 0 24px;border-top:1px solid rgba(7,61,48,.12)}
     .spec-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:12px 0;border-bottom:1px solid rgba(7,61,48,.1)}
     .spec-label{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);padding-top:3px}
@@ -426,13 +428,33 @@
             <img id="featuredImage" src="images/aquafluid.jpg" alt="AquaFluid">
           </div>
           <div class="featured-info">
-            <div class="size" id="featuredSize">Bruma facial · 200 ml</div>
-            <h3 id="featuredName">AquaFluid</h3>
-            <div class="type" id="featuredType">Fluido Hidratante</div>
-            <div class="triad" id="featuredTriad"></div>
-            <p class="desc" id="featuredDesc"></p>
-            <div class="specs" id="featuredSpecs"></div>
-            <a class="btn btn-primary buy-btn" id="featuredBuy" href="https://wa.me/5511976591889" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+            <div class="product-detail active" data-detail="aquafluid">
+              <div class="size">Bruma facial · 200 ml</div>
+              <h3>AquaFluid</h3>
+              <div class="type">Fluido Hidratante</div>
+              <div class="triad"><span>Remineralizante</span><span>Refrescante</span><span>Calmante</span></div>
+              <p class="desc">Bruma hidratante de toque leve que repõe minerais, refresca e acalma a pele. Indicada para todos os tipos de pele e ideal após procedimentos estéticos.</p>
+              <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Para hidratação, refrescância e cuidado diário da pele.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Camomila, Ácido Hialurônico, Sodium PCA, Lecitina.</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Borrifar sobre a pele limpa sempre que desejar. Não aplicar sobre pele irritada ou lesionada.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">200 ml</span></div></div>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20AquaFluid%20Fluido%20Hidratante%20%C2%B7%20200%20ml." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+            </div>
+            <div class="product-detail" data-detail="faceblur">
+              <div class="size">Gel creme · FPS 50 · 50 g</div>
+              <h3>Face Blur FPS 50</h3>
+              <div class="type">Multifuncional com filtro solar</div>
+              <div class="triad"><span>Corrige</span><span>Protege</span><span>Trata</span></div>
+              <p class="desc">Multifuncional que uniformiza o tom e desfoca imperfeições enquanto oferece fotoproteção FPS 50 (UVA 16,8% + UVB), com Vitaminas E + D e Elastina.</p>
+              <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Proteção solar diária com ação multifuncional para o rosto.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Vitaminas E + D, Elastina (UVA 16,8% + UVB).</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Aplicar sobre a pele limpa, espalhando uniformemente pelo rosto.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Reaplicar ao longo do dia. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">50 g · FPS 50</span></div></div>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20Face%20Blur%20FPS%2050%20%C2%B7%2050%20g." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+            </div>
+            <div class="product-detail" data-detail="lipobody">
+              <div class="size">Massagem · Corporal · 1 kg</div>
+              <h3>Lipobody</h3>
+              <div class="type">Creme de massagem corporal</div>
+              <div class="triad"><span>Desliza</span><span>Conforta</span><span>Nutre</span></div>
+              <p class="desc">Creme de massagem corporal de deslizamento prolongado, desenvolvido para sessões profissionais e para o cuidado diário do corpo, deixando a pele macia e confortável.</p>
+              <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Massagem corporal. Para todos os tipos de pele.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Colágeno, L-Carnitina, Pimenta Negra, Gengibre, Centella Asiática, Chá Verde.</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Aplicar a quantidade desejada e massagear até a completa absorção.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Evitar áreas com lesões ou irritação. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">1 kg</span></div></div>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20Lipobody%20Creme%20de%20Massagem%20Corporal%20%C2%B7%201%20kg." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+            </div>
           </div>
         </div>
 
@@ -465,12 +487,12 @@
           <p>Selecionamos ingredientes consagrados na dermocosmética — do hidratante ao antioxidante — em concentrações pensadas para o uso diário.</p>
         </div>
         <div class="ing-grid">
-          <div class="ing-card"><div class="idx">01</div><div class="name">Niacinamida</div><div class="note">Uniformiza o tom e fortalece a barreira cutânea.</div></div>
-          <div class="ing-card"><div class="idx">02</div><div class="name">Ácido Hialurônico</div><div class="note">Atrai e retém água para uma pele preenchida.</div></div>
-          <div class="ing-card"><div class="idx">03</div><div class="name">Cafeína</div><div class="note">Revigora e melhora o aspecto da pele.</div></div>
-          <div class="ing-card"><div class="idx">04</div><div class="name">Resveratrol</div><div class="note">Antioxidante que protege do estresse oxidativo.</div></div>
-          <div class="ing-card"><div class="idx">05</div><div class="name">Vitamina C</div><div class="note">Ilumina e potencializa a defesa antioxidante.</div></div>
-          <div class="ing-card"><div class="idx">06</div><div class="name">Camomila</div><div class="note">Acalma e reduz a sensação de desconforto.</div></div>
+          <div class="ing-card"><div class="idx">01</div><div class="name">Ácido Hialurônico</div><div class="note">Atrai e retém água, ajudando a manter a pele hidratada.</div></div>
+          <div class="ing-card"><div class="idx">02</div><div class="name">Sodium PCA</div><div class="note">Umectante e fator de hidratação natural da pele.</div></div>
+          <div class="ing-card"><div class="idx">03</div><div class="name">Camomila</div><div class="note">Extrato botânico conhecido pela ação calmante.</div></div>
+          <div class="ing-card"><div class="idx">04</div><div class="name">Vitamina E</div><div class="note">Antioxidante que ajuda a proteger a pele.</div></div>
+          <div class="ing-card"><div class="idx">05</div><div class="name">Colágeno</div><div class="note">Proteína associada à firmeza e à maciez da pele.</div></div>
+          <div class="ing-card"><div class="idx">06</div><div class="name">Centella Asiática</div><div class="note">Ativo botânico tradicional no cuidado da pele.</div></div>
         </div>
       </div>
     </section>
@@ -588,70 +610,20 @@
     document.querySelectorAll('.menu-panel nav a, .menu-foot a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-    // ----- product switcher -----
-    const products = {
-      aquafluid: {
-        name: 'AquaFluid', type: 'Fluido Hidratante',
-        size: 'Bruma facial · 200 ml',
-        img: `images/aquafluid.${EXT}`, alt: 'AquaFluid Fluido Hidratante 200 ml',
-        triad: ['Remineralizante', 'Refrescante', 'Calmante'],
-        desc: 'Bruma hidratante de toque leve que repõe minerais, refresca e acalma a pele. Indicada para todos os tipos de pele e ideal após procedimentos estéticos.',
-        use: 'Vaporize abundantemente a 10 cm da pele, diversas vezes ao dia.',
-        indicacao: 'Todos os tipos de pele. Ideal para complementar procedimentos estéticos.',
-        ativos: 'Camomila, Ácido Hialurônico, Sodium PCA, Lecitina.',
-        precaucoes: 'Uso externo. Evite o contato com os olhos. Em caso de irritação, suspenda o uso.',
-        volume: '200 ml'
-      },
-      faceblur: {
-        name: 'Face Blur FPS 50', type: 'Multifuncional com filtro solar',
-        size: 'Gel creme · FPS 50 · 50 g',
-        img: `images/faceblur.${EXT}`, alt: 'Face Blur AquaFlore FPS 50',
-        triad: ['Corrige', 'Protege', 'Trata'],
-        desc: 'Multifuncional que uniformiza o tom e desfoca imperfeições enquanto oferece fotoproteção FPS 50 (UVA 16,8% + UVB), com Vitaminas E + D e Elastina.',
-        use: 'Aplique sobre a pele limpa, espalhando uniformemente pelo rosto.',
-        indicacao: 'Proteção solar diária com ação multifuncional para o rosto.',
-        ativos: 'Vitaminas E + D, Elastina (UVA 16,8% + UVB).',
-        precaucoes: 'Uso externo. Evite o contato com os olhos. Reaplique ao longo do dia para manter a proteção.',
-        volume: '50 g · FPS 50'
-      },
-      lipobody: {
-        name: 'Lipobody', type: 'Creme de massagem corporal',
-        size: 'Massagem · Corporal · 1 kg',
-        img: `images/lipobody.${EXT}`, alt: 'Creme de massagem corporal Lipobody',
-        triad: ['Desliza', 'Conforta', 'Nutre'],
-        desc: 'Creme de massagem corporal de deslizamento prolongado, desenvolvido para sessões profissionais e para o cuidado diário do corpo, deixando a pele macia e confortável.',
-        use: 'Aplique a quantidade desejada e massageie até a completa absorção.',
-        indicacao: 'Massagem corporal. Para todos os tipos de pele.',
-        ativos: 'Colágeno, L-Carnitina, Pimenta Negra, Gengibre, Centella Asiática, Chá Verde.',
-        precaucoes: 'Uso externo. Evite áreas com lesões ou irritação.',
-        volume: '1 kg'
-      }
+    // ----- product switcher (details are static HTML; JS only toggles which shows) -----
+    const productImg = {
+      aquafluid: { img: `images/aquafluid.${EXT}`, alt: 'AquaFluid Fluido Hidratante 200 ml' },
+      faceblur:  { img: `images/faceblur.${EXT}`,  alt: 'Face Blur AquaFlore FPS 50' },
+      lipobody:  { img: `images/lipobody.${EXT}`,  alt: 'Creme de massagem corporal Lipobody' }
     };
-
-    const els = {
-      image: document.getElementById('featuredImage'),
-      size: document.getElementById('featuredSize'),
-      name: document.getElementById('featuredName'),
-      type: document.getElementById('featuredType'),
-      triad: document.getElementById('featuredTriad'),
-      desc: document.getElementById('featuredDesc'),
-      specs: document.getElementById('featuredSpecs'),
-      buy: document.getElementById('featuredBuy')
-    };
-
+    const featuredImage = document.getElementById('featuredImage');
     function selectProduct(id) {
-      const p = products[id];
+      const p = productImg[id];
       if (!p) return;
-      els.image.src = p.img;
-      els.image.alt = p.alt;
-      els.size.textContent = p.size;
-      els.name.textContent = p.name;
-      els.type.textContent = p.type;
-      els.triad.innerHTML = p.triad.map(t => `<span>${t}</span>`).join('');
-      els.desc.textContent = p.desc;
-      const rows = [['Indicação',p.indicacao],['Principais ativos',p.ativos],['Modo de uso',p.use],['Precauções',p.precaucoes],['Volume',p.volume]];
-      els.specs.innerHTML = rows.map(([l,v]) => `<div class="spec-row"><span class="spec-label">${l}</span><span class="spec-val">${v}</span></div>`).join('');
-      els.buy.href = 'https://wa.me/5511976591889?text=' + encodeURIComponent('Olá! Tenho interesse no ' + p.name + '.');
+      featuredImage.src = p.img;
+      featuredImage.alt = p.alt;
+      document.querySelectorAll('.product-detail').forEach(d =>
+        d.classList.toggle('active', d.dataset.detail === id));
       document.querySelectorAll('.product-tab').forEach(tab => {
         const active = tab.dataset.product === id;
         tab.classList.toggle('active', active);
@@ -659,10 +631,8 @@
         tab.querySelector('.sel').textContent = active ? 'Selecionado' : '';
       });
     }
-
     document.querySelectorAll('.product-tab').forEach(tab =>
-      tab.addEventListener('click', () => selectProduct(tab.dataset.product))
-    );
+      tab.addEventListener('click', () => selectProduct(tab.dataset.product)));
     selectProduct('aquafluid');
   </script>
 </body>
