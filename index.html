@@ -8,6 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23073D30'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23F5F7F2' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="canonical" href="https://aquaflore.com.br/">
   <meta name="theme-color" content="#073D30">
+  <meta name="robots" content="index,follow,max-image-preview:large">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -53,6 +54,18 @@
     "sameAs": ["https://wa.me/5511976591889"]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Produtos AquaFlore",
+    "itemListElement": [
+      { "@type": "Product", "position": 1, "name": "AquaFluid", "brand": { "@type": "Brand", "name": "AquaFlore" }, "image": "https://aquaflore.com.br/images/aquafluid.jpg", "description": "Bruma facial hidratante para refrescância e cuidado diário da pele." },
+      { "@type": "Product", "position": 2, "name": "Face Blur FPS 50", "brand": { "@type": "Brand", "name": "AquaFlore" }, "image": "https://aquaflore.com.br/images/faceblur.jpg", "description": "Gel creme facial multifuncional com fotoproteção FPS 50 (UVA + UVB)." },
+      { "@type": "Product", "position": 3, "name": "Lipobody", "brand": { "@type": "Brand", "name": "AquaFlore" }, "image": "https://aquaflore.com.br/images/lipobody.jpg", "description": "Creme de massagem corporal para uso profissional e cuidado diário do corpo." }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,6 +82,9 @@
     }
 
     *{box-sizing:border-box}
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--deep);color:#fff;padding:10px 16px;border-bottom-right-radius:10px;z-index:1000;text-decoration:none}
+    .skip-link:focus{left:0;top:0}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
     html{scroll-behavior:smooth;scroll-padding-top:88px}
     body{
       margin:0;
@@ -215,8 +231,8 @@
     .product-tab:hover{border-color:var(--green);transform:translateY(-3px)}
     .product-tab.active{background:#F3F8F4;border-color:var(--green)}
     .tab-top{display:flex;align-items:center;justify-content:flex-end;min-height:18px;margin-bottom:18px}
-    .tab-top .sel{display:none;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);align-items:center;gap:6px}
-    .tab-top .sel::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+    .tab-top .sel{display:none;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--green)}
+    .tab-top .sel::before{content:"✓";color:#fff;font-size:11px;font-weight:700;line-height:1}
     .product-tab.active .tab-top .sel{display:flex}
     .product-tab .tab-name{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:28px;line-height:1.04;color:var(--deep-2);margin-bottom:4px}
     .product-tab .tab-type{font-size:13.5px;color:#5E7368;line-height:1.4}
@@ -321,6 +337,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <!-- ===== TOP BAR ===== -->
   <div class="topbar">
     <div class="wrap">
@@ -375,7 +392,7 @@
     </div>
   </div>
 
-  <main>
+  <main id="conteudo">
     <!-- ===== HERO ===== -->
     <section id="hero" class="wrap">
       <div class="hero-text">
@@ -392,7 +409,7 @@
         <div class="hero-frame">
           <picture>
             <source srcset="images/aquafluid.webp" type="image/webp">
-            <img src="images/aquafluid.jpg" alt="AquaFluid Fluido Hidratante 200 ml">
+            <img src="images/aquafluid.jpg" alt="AquaFluid Fluido Hidratante 200 ml" width="960" height="1200" loading="eager" decoding="async">
           </picture>
         </div>
         <div class="hero-note">
@@ -425,51 +442,51 @@
 
         <div class="featured" aria-live="polite">
           <div class="product-stage">
-            <img id="featuredImage" src="images/aquafluid.jpg" alt="AquaFluid">
+            <img id="featuredImage" src="images/aquafluid.jpg" alt="AquaFluid" width="960" height="1200" loading="lazy" decoding="async">
           </div>
           <div class="featured-info">
-            <div class="product-detail active" data-detail="aquafluid">
+            <div class="product-detail active" data-detail="aquafluid" id="panel-aquafluid" role="tabpanel" aria-labelledby="tab-aquafluid" tabindex="0">
               <div class="size">Bruma facial · 200 ml</div>
               <h3>AquaFluid</h3>
               <div class="type">Fluido Hidratante</div>
               <div class="triad"><span>Remineralizante</span><span>Refrescante</span><span>Calmante</span></div>
               <p class="desc">Bruma hidratante de toque leve que repõe minerais, refresca e acalma a pele. Indicada para todos os tipos de pele e ideal após procedimentos estéticos.</p>
               <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Para hidratação, refrescância e cuidado diário da pele.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Camomila, Ácido Hialurônico, Sodium PCA, Lecitina.</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Borrifar sobre a pele limpa sempre que desejar. Não aplicar sobre pele irritada ou lesionada.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">200 ml</span></div></div>
-              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20AquaFluid%20Fluido%20Hidratante%20%C2%B7%20200%20ml." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%21%20Quero%20comprar%20o%20AquaFluid%20Fluido%20Hidratante%20%28200%20ml%29.%20Pode%20me%20enviar%20valor%2C%20frete%20e%20prazo%20de%20entrega%3F" data-product="aquafluid" data-cta-location="product-panel" target="_blank" rel="noopener">Comprar no WhatsApp</a>
             </div>
-            <div class="product-detail" data-detail="faceblur">
+            <div class="product-detail" data-detail="faceblur" id="panel-faceblur" role="tabpanel" aria-labelledby="tab-faceblur" tabindex="0">
               <div class="size">Gel creme · FPS 50 · 50 g</div>
               <h3>Face Blur FPS 50</h3>
               <div class="type">Multifuncional com filtro solar</div>
-              <div class="triad"><span>Corrige</span><span>Protege</span><span>Trata</span></div>
-              <p class="desc">Multifuncional que uniformiza o tom e desfoca imperfeições enquanto oferece fotoproteção FPS 50 (UVA 16,8% + UVB), com Vitaminas E + D e Elastina.</p>
+              <div class="triad"><span>Uniformiza</span><span>Protege</span><span>Cuida</span></div>
+              <p class="desc">Multifuncional com ação antioxidante e anti-envelhecimento: uniformiza o tom e desfoca imperfeições enquanto oferece fotoproteção FPS 50 (UVA 16,8% + UVB), com Vitaminas E + D e Elastina.</p>
               <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Proteção solar diária com ação multifuncional para o rosto.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Vitaminas E + D, Elastina (UVA 16,8% + UVB).</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Aplicar sobre a pele limpa, espalhando uniformemente pelo rosto.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Reaplicar ao longo do dia. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">50 g · FPS 50</span></div></div>
-              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20Face%20Blur%20FPS%2050%20%C2%B7%2050%20g." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%21%20Quero%20comprar%20o%20Face%20Blur%20FPS%2050%20%2850%20g%29.%20Pode%20me%20enviar%20valor%2C%20frete%2C%20prazo%20e%20orienta%C3%A7%C3%A3o%20de%20uso%20di%C3%A1rio%3F" data-product="faceblur" data-cta-location="product-panel" target="_blank" rel="noopener">Comprar no WhatsApp</a>
             </div>
-            <div class="product-detail" data-detail="lipobody">
+            <div class="product-detail" data-detail="lipobody" id="panel-lipobody" role="tabpanel" aria-labelledby="tab-lipobody" tabindex="0">
               <div class="size">Massagem · Corporal · 1 kg</div>
               <h3>Lipobody</h3>
               <div class="type">Creme de massagem corporal</div>
               <div class="triad"><span>Desliza</span><span>Conforta</span><span>Nutre</span></div>
               <p class="desc">Creme de massagem corporal de deslizamento prolongado, desenvolvido para sessões profissionais e para o cuidado diário do corpo, deixando a pele macia e confortável.</p>
               <div class="specs"><div class="spec-row"><span class="spec-label">Indicação</span><span class="spec-val">Massagem corporal. Para todos os tipos de pele.</span></div><div class="spec-row"><span class="spec-label">Principais ativos</span><span class="spec-val">Colágeno, L-Carnitina, Pimenta Negra, Gengibre, Centella Asiática, Chá Verde.</span></div><div class="spec-row"><span class="spec-label">Modo de uso</span><span class="spec-val">Aplicar a quantidade desejada e massagear até a completa absorção.</span></div><div class="spec-row"><span class="spec-label">Precauções</span><span class="spec-val">Uso externo. Evitar áreas com lesões ou irritação. Manter fora do alcance de crianças.</span></div><div class="spec-row"><span class="spec-label">Volume</span><span class="spec-val">1 kg</span></div></div>
-              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%2C%20gostaria%20de%20comprar%20o%20Lipobody%20Creme%20de%20Massagem%20Corporal%20%C2%B7%201%20kg." target="_blank" rel="noopener">Comprar no WhatsApp</a>
+              <a class="btn btn-primary buy-btn" href="https://wa.me/5511976591889?text=Ol%C3%A1%21%20Quero%20comprar%20o%20Lipobody%20Creme%20de%20Massagem%20Corporal%20%281%20kg%29.%20Pode%20me%20enviar%20valor%2C%20frete%2C%20prazo%20e%20condi%C3%A7%C3%B5es%20para%20revenda%3F" data-product="lipobody" data-cta-location="product-panel" target="_blank" rel="noopener">Comprar no WhatsApp</a>
             </div>
           </div>
         </div>
 
         <div class="switcher" role="tablist" aria-label="Produtos AquaFlore">
-          <button class="product-tab active" type="button" data-product="aquafluid" role="tab" aria-selected="true">
-            <div class="tab-top"><span class="sel" aria-hidden="true">Selecionado</span></div>
+          <button class="product-tab active" type="button" data-product="aquafluid" role="tab" id="tab-aquafluid" aria-controls="panel-aquafluid" aria-selected="true" tabindex="0">
+            <div class="tab-top"><span class="sel" aria-hidden="true"></span></div>
             <div class="tab-name">AquaFluid</div>
             <div class="tab-type">Fluido Hidratante</div>
           </button>
-          <button class="product-tab" type="button" data-product="faceblur" role="tab" aria-selected="false">
+          <button class="product-tab" type="button" data-product="faceblur" role="tab" id="tab-faceblur" aria-controls="panel-faceblur" aria-selected="false" tabindex="-1">
             <div class="tab-top"><span class="sel" aria-hidden="true"></span></div>
             <div class="tab-name">Face Blur FPS 50</div>
             <div class="tab-type">Multifuncional com filtro solar</div>
           </button>
-          <button class="product-tab" type="button" data-product="lipobody" role="tab" aria-selected="false">
+          <button class="product-tab" type="button" data-product="lipobody" role="tab" id="tab-lipobody" aria-controls="panel-lipobody" aria-selected="false" tabindex="-1">
             <div class="tab-top"><span class="sel" aria-hidden="true"></span></div>
             <div class="tab-name">Lipobody</div>
             <div class="tab-type">Creme de massagem corporal</div>
@@ -521,7 +538,7 @@
       <div class="about-figure">
         <picture>
         <source srcset="images/sobre-lab.webp" type="image/webp">
-        <img src="images/sobre-lab.jpg" alt="Produtos AquaFlore no laboratório">
+        <img src="images/sobre-lab.jpg" alt="Produtos AquaFlore no laboratório" width="1000" height="1200" loading="lazy" decoding="async">
       </picture>
       </div>
       <div>
@@ -617,22 +634,35 @@
       lipobody:  { img: `images/lipobody.${EXT}`,  alt: 'Creme de massagem corporal Lipobody' }
     };
     const featuredImage = document.getElementById('featuredImage');
-    function selectProduct(id) {
+    const tabs = Array.from(document.querySelectorAll('.product-tab'));
+    function selectProduct(id, setFocus) {
       const p = productImg[id];
       if (!p) return;
       featuredImage.src = p.img;
       featuredImage.alt = p.alt;
       document.querySelectorAll('.product-detail').forEach(d =>
         d.classList.toggle('active', d.dataset.detail === id));
-      document.querySelectorAll('.product-tab').forEach(tab => {
+      tabs.forEach(tab => {
         const active = tab.dataset.product === id;
         tab.classList.toggle('active', active);
         tab.setAttribute('aria-selected', active ? 'true' : 'false');
-        tab.querySelector('.sel').textContent = active ? 'Selecionado' : '';
+        tab.tabIndex = active ? 0 : -1;
+        if (active && setFocus) tab.focus();
       });
     }
-    document.querySelectorAll('.product-tab').forEach(tab =>
-      tab.addEventListener('click', () => selectProduct(tab.dataset.product)));
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectProduct(tab.dataset.product));
+      tab.addEventListener('keydown', e => {
+        let n;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        else return;
+        e.preventDefault();
+        selectProduct(tabs[n].dataset.product, true);
+      });
+    });
     selectProduct('aquafluid');
   </script>
 </body>
