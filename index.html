@@ -40,6 +40,7 @@
       "@type": "PostalAddress",
       "streetAddress": "Rua Max Mangels Senior, 347",
       "addressLocality": "São Bernardo do Campo",
+      "postalCode": "09895-510",
       "addressRegion": "SP",
       "addressCountry": "BR"
     },
@@ -197,9 +198,11 @@
     .triad{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
     .triad span{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--deep);background:#E8F0EA;border-radius:100px;padding:7px 15px}
     .featured-info .desc{font-size:16px;line-height:1.65;color:#46554D;margin:0 0 26px;max-width:520px}
-    .use-box{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--paper);border-radius:14px;border:1px solid rgba(7,61,48,.08)}
-    .use-box .label{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);padding-top:2px;white-space:nowrap}
-    .use-box .text{font-size:14.5px;line-height:1.55;color:#34453C}
+    .specs{margin:22px 0 24px;border-top:1px solid rgba(7,61,48,.12)}
+    .spec-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:12px 0;border-bottom:1px solid rgba(7,61,48,.1)}
+    .spec-label{font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);padding-top:3px}
+    .spec-val{font-size:14.5px;line-height:1.5;color:#34453C}
+    .buy-btn{width:100%}
 
     .switcher{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .product-tab{
@@ -294,6 +297,7 @@
       #produtos .wrap{padding-top:52px;padding-bottom:52px}
       .featured{grid-template-columns:1fr;gap:26px}
       .switcher{grid-template-columns:1fr}
+      .spec-row{grid-template-columns:1fr;gap:4px}
       #ingredientes .wrap{padding-top:52px;padding-bottom:52px}
       .ing-grid{grid-template-columns:1fr}
       #profissionais .wrap{grid-template-columns:1fr;gap:34px;padding-top:56px;padding-bottom:56px}
@@ -318,7 +322,7 @@
   <!-- ===== TOP BAR ===== -->
   <div class="topbar">
     <div class="wrap">
-      <span>Indústria Brasileira · Registro Anvisa</span>
+      <span>Indústria Brasileira · Dermocosméticos</span>
       <a href="https://wa.me/5511976591889" target="_blank" rel="noopener" aria-label="WhatsApp 11 97659-1889">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="#7FBE9E" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
         WhatsApp 11 97659-1889
@@ -400,7 +404,7 @@
     <section class="trust wrap">
       <div class="trust-grid">
         <div class="trust-item"><span class="dot"></span><span class="t">Indústria Brasileira</span></div>
-        <div class="trust-item"><span class="dot"></span><span class="t">Registro Anvisa</span></div>
+        <div class="trust-item"><span class="dot"></span><span class="t">Uso diário e profissional</span></div>
         <div class="trust-item"><span class="dot"></span><span class="t">Todos os tipos de pele</span></div>
         <div class="trust-item"><span class="dot"></span><span class="t">Ideal pós-procedimento</span></div>
       </div>
@@ -427,26 +431,24 @@
             <div class="type" id="featuredType">Fluido Hidratante</div>
             <div class="triad" id="featuredTriad"></div>
             <p class="desc" id="featuredDesc"></p>
-            <div class="use-box">
-              <span class="label">Modo de uso</span>
-              <span class="text" id="featuredUse"></span>
-            </div>
+            <div class="specs" id="featuredSpecs"></div>
+            <a class="btn btn-primary buy-btn" id="featuredBuy" href="https://wa.me/5511976591889" target="_blank" rel="noopener">Comprar no WhatsApp</a>
           </div>
         </div>
 
         <div class="switcher" role="tablist" aria-label="Produtos AquaFlore">
           <button class="product-tab active" type="button" data-product="aquafluid" role="tab" aria-selected="true">
-            <div class="tab-top"><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel" aria-hidden="true">Selecionado</span></div>
             <div class="tab-name">AquaFluid</div>
             <div class="tab-type">Fluido Hidratante</div>
           </button>
           <button class="product-tab" type="button" data-product="faceblur" role="tab" aria-selected="false">
-            <div class="tab-top"><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel" aria-hidden="true"></span></div>
             <div class="tab-name">Face Blur FPS 50</div>
             <div class="tab-type">Multifuncional com filtro solar</div>
           </button>
           <button class="product-tab" type="button" data-product="lipobody" role="tab" aria-selected="false">
-            <div class="tab-top"><span class="sel">Selecionado</span></div>
+            <div class="tab-top"><span class="sel" aria-hidden="true"></span></div>
             <div class="tab-name">Lipobody</div>
             <div class="tab-type">Creme de massagem corporal</div>
           </button>
@@ -503,11 +505,10 @@
       <div>
         <div class="eyebrow">Sobre a AquaFlore</div>
         <h2>Dermocosmética brasileira, feita com rigor</h2>
-        <p>A AquaFlore nasce do encontro entre ciência e cuidado. Cada fórmula é desenvolvida e produzida no Brasil, com registro junto à Anvisa e atenção a quem busca resultado com segurança.</p>
+        <p>A AquaFlore nasce do encontro entre ciência e cuidado. Cada fórmula é desenvolvida e produzida no Brasil, voltada a quem busca resultado com segurança.</p>
         <p>Da bruma que refresca ao multifuncional com proteção solar, criamos produtos que se integram com leveza à rotina — em casa ou na clínica.</p>
         <div class="mini-stats">
           <div><div class="k">100%</div><div class="v">Indústria Brasileira</div></div>
-          <div><div class="k">Anvisa</div><div class="v">Produtos registrados</div></div>
           <div><div class="k">Todos</div><div class="v">os tipos de pele</div></div>
         </div>
       </div>
@@ -530,9 +531,6 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#006C55" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
               WhatsApp
             </a>
-            <a class="btn shop-pill" href="#" data-marketplace="mercadolivre">Mercado Livre</a>
-            <a class="btn shop-pill" href="#" data-marketplace="amazon">Amazon</a>
-            <a class="btn shop-pill" href="#" data-marketplace="shopee">Shopee</a>
           </div>
         </div>
         <div>
@@ -557,11 +555,7 @@
             </a>
             <div>
               <div class="small">Endereço</div>
-              <div class="val">Rua Max Mangels Senior, 347</div>
-            </div>
-            <div>
-              <div class="small">Registro</div>
-              <div class="val">Produtos registrados na Anvisa</div>
+              <div class="val">Rua Max Mangels Senior, 347<br>São Bernardo do Campo – SP · 09895-510</div>
             </div>
           </div>
         </div>
@@ -602,15 +596,23 @@
         img: `images/aquafluid.${EXT}`, alt: 'AquaFluid Fluido Hidratante 200 ml',
         triad: ['Remineralizante', 'Refrescante', 'Calmante'],
         desc: 'Bruma hidratante de toque leve que repõe minerais, refresca e acalma a pele. Indicada para todos os tipos de pele e ideal após procedimentos estéticos.',
-        use: 'Vaporize abundantemente a 10 cm da pele, diversas vezes ao dia.'
+        use: 'Vaporize abundantemente a 10 cm da pele, diversas vezes ao dia.',
+        indicacao: 'Todos os tipos de pele. Ideal para complementar procedimentos estéticos.',
+        ativos: 'Camomila, Ácido Hialurônico, Sodium PCA, Lecitina.',
+        precaucoes: 'Uso externo. Evite o contato com os olhos. Em caso de irritação, suspenda o uso.',
+        volume: '200 ml'
       },
       faceblur: {
         name: 'Face Blur FPS 50', type: 'Multifuncional com filtro solar',
         size: 'Gel creme · FPS 50 · 50 g',
         img: `images/faceblur.${EXT}`, alt: 'Face Blur AquaFlore FPS 50',
         triad: ['Corrige', 'Protege', 'Trata'],
-        desc: 'Multifuncional que uniformiza o tom, desfoca imperfeições e protege com FPS 50, combinando ativos de tratamento como niacinamida, ácido hialurônico e cafeína. Contém filtro solar e não substitui o protetor solar.',
-        use: 'Aplique sobre a pele limpa, espalhando uniformemente pelo rosto.'
+        desc: 'Multifuncional que uniformiza o tom e desfoca imperfeições enquanto oferece fotoproteção FPS 50 (UVA 16,8% + UVB), com Vitaminas E + D e Elastina.',
+        use: 'Aplique sobre a pele limpa, espalhando uniformemente pelo rosto.',
+        indicacao: 'Proteção solar diária com ação multifuncional para o rosto.',
+        ativos: 'Vitaminas E + D, Elastina (UVA 16,8% + UVB).',
+        precaucoes: 'Uso externo. Evite o contato com os olhos. Reaplique ao longo do dia para manter a proteção.',
+        volume: '50 g · FPS 50'
       },
       lipobody: {
         name: 'Lipobody', type: 'Creme de massagem corporal',
@@ -618,7 +620,11 @@
         img: `images/lipobody.${EXT}`, alt: 'Creme de massagem corporal Lipobody',
         triad: ['Desliza', 'Conforta', 'Nutre'],
         desc: 'Creme de massagem corporal de deslizamento prolongado, desenvolvido para sessões profissionais e para o cuidado diário do corpo, deixando a pele macia e confortável.',
-        use: 'Aplique a quantidade desejada e massageie até a completa absorção.'
+        use: 'Aplique a quantidade desejada e massageie até a completa absorção.',
+        indicacao: 'Massagem corporal. Para todos os tipos de pele.',
+        ativos: 'Colágeno, L-Carnitina, Pimenta Negra, Gengibre, Centella Asiática, Chá Verde.',
+        precaucoes: 'Uso externo. Evite áreas com lesões ou irritação.',
+        volume: '1 kg'
       }
     };
 
@@ -629,7 +635,8 @@
       type: document.getElementById('featuredType'),
       triad: document.getElementById('featuredTriad'),
       desc: document.getElementById('featuredDesc'),
-      use: document.getElementById('featuredUse')
+      specs: document.getElementById('featuredSpecs'),
+      buy: document.getElementById('featuredBuy')
     };
 
     function selectProduct(id) {
@@ -642,11 +649,14 @@
       els.type.textContent = p.type;
       els.triad.innerHTML = p.triad.map(t => `<span>${t}</span>`).join('');
       els.desc.textContent = p.desc;
-      els.use.textContent = p.use;
+      const rows = [['Indicação',p.indicacao],['Principais ativos',p.ativos],['Modo de uso',p.use],['Precauções',p.precaucoes],['Volume',p.volume]];
+      els.specs.innerHTML = rows.map(([l,v]) => `<div class="spec-row"><span class="spec-label">${l}</span><span class="spec-val">${v}</span></div>`).join('');
+      els.buy.href = 'https://wa.me/5511976591889?text=' + encodeURIComponent('Olá! Tenho interesse no ' + p.name + '.');
       document.querySelectorAll('.product-tab').forEach(tab => {
         const active = tab.dataset.product === id;
         tab.classList.toggle('active', active);
         tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        tab.querySelector('.sel').textContent = active ? 'Selecionado' : '';
       });
     }
 
